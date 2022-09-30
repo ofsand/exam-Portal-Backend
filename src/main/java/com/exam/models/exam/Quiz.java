@@ -93,4 +93,12 @@ public class Quiz {
     public void setqId(Long qId) {
         this.qId = qId;
     }
+
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
+    }
 }

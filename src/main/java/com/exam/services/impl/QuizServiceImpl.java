@@ -1,8 +1,10 @@
 package com.exam.services.impl;
 
+import com.exam.models.exam.Question;
 import com.exam.models.exam.Quiz;
 import com.exam.repo.QuizRepository;
 import com.exam.services.QuizService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -12,6 +14,7 @@ import java.util.Set;
 @Service
 public class QuizServiceImpl implements QuizService {
 
+    @Autowired
     private QuizRepository quizRepository;
 
     @Override
@@ -33,6 +36,7 @@ public class QuizServiceImpl implements QuizService {
     public Set<Quiz> getQuizzes() {
         return new LinkedHashSet<>(this.quizRepository.findAll());
     }
+
 
     @Override
     public void deleteQuiz(Long quizId) {
