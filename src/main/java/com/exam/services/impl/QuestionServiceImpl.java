@@ -1,12 +1,15 @@
 package com.exam.services.impl;
 
 import com.exam.models.exam.Question;
+import com.exam.models.exam.Quiz;
 import com.exam.repo.QuestionRepository;
 import com.exam.services.QuestionService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class QuestionServiceImpl implements QuestionService {
 
     private QuestionRepository questionRepository;
@@ -29,6 +32,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public Question getQuestion(Long questionId) {
         return this.questionRepository.findById(questionId).get();
+    }
+
+    @Override
+    public Set<Question> getQuestionsByQuiz(Quiz quiz) {
+        return this.questionRepository.findByQuiz(quiz);
     }
 
     @Override

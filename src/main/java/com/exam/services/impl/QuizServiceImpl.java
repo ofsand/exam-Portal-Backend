@@ -3,11 +3,13 @@ package com.exam.services.impl;
 import com.exam.models.exam.Quiz;
 import com.exam.repo.QuizRepository;
 import com.exam.services.QuizService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+@Service
 public class QuizServiceImpl implements QuizService {
 
     private QuizRepository quizRepository;
