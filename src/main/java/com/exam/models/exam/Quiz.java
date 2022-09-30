@@ -15,21 +15,21 @@ public class Quiz {
     private Long qId;
     private String title;
     private String description;
-    private Long maxMarks;
-    private Long numberOfQuestions;
+    private String maxMarks;
+    private String numberOfQuestions;
     private boolean active = true;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Category category;
 
-    @OneToMany(mappedBy = "quiz", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Question> questions = new HashSet<>();
 
     public Quiz() {
     }
 
-    public Quiz(Long qId, String title, String description, Long maxMarks, Long numberOfQuestions, boolean active, Long cId) {
+    public Quiz(Long qId, String title, String description, String maxMarks, String numberOfQuestions, boolean active, Long cId) {
         this.qId = qId;
         this.title = title;
         this.description = description;
@@ -54,19 +54,19 @@ public class Quiz {
         this.description = description;
     }
 
-    public Long getMaxMarks() {
+    public String getMaxMarks() {
         return maxMarks;
     }
 
-    public void setMaxMarks(Long maxMarks) {
+    public void setMaxMarks(String maxMarks) {
         this.maxMarks = maxMarks;
     }
 
-    public Long getNumberOfQuestions() {
+    public String getNumberOfQuestions() {
         return numberOfQuestions;
     }
 
-    public void setNumberOfQuestions(Long numberOfQuestions) {
+    public void setNumberOfQuestions(String numberOfQuestions) {
         this.numberOfQuestions = numberOfQuestions;
     }
 
